@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:15:09 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/11 13:03:11 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:45:02 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	result = ft_calloc(ft_wrdcnt(s, c) + 1, sizeof(char *));
 	if (!result)
-		return (ft_free_array(result, i));
+		return (NULL);
 	ptr = s;
 	while (*ptr == c)
 		ptr++;
