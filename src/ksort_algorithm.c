@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunk_algorithm.c                                  :+:      :+:    :+:   */
+/*   ksort_algorithm.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:59:10 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/10 11:42:53 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/11 11:06:53 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 void	k_sort(t_list *a, t_list *b)
-{
-	int	i;
-
-	i = 0;
-	while (b->array[i] != b->array[a->top])
-		i++;
-    if (i < ((a->top + 1) / 2))
-    {
-        while (i > 0)
-        {
-            rotate_b(b);
-            i--;
-        }
-    }
-    else
-    {
-        while (i < (a->top + 1))
-        {
-            i++;
+{   
+	int	max_pos;
+	int	len;
+	
+	len = stack_len(b);
+	max_pos = find_largest_position(b);
+	if (max_pos <= len / 2)
+	{
+		while (max_pos > 0)
+		{
+			rotate_b(b);
+			max_pos--;
+		}
+	}
+	else
+	{
+		while (max_pos < len)
+		{
 			reverse_rotate_b(b);
-        }
-    }
-    push_to_a(b, a);
+			max_pos++;
+		}
+	}
+	push_to_a(b, a);
 }
 
 void	process_stack_a(t_list *a, t_list *b, int *i, int range)
@@ -57,16 +57,16 @@ void	process_stack_a(t_list *a, t_list *b, int *i, int range)
 
 void	sort_large(t_list *a, t_list *b)
 {
-	int	i;
-	int	range;
-
+	int		i;
+	int		range;
+	
 	i = 0;
 	if (stack_len(a) <= 100)
 		range = 20;
 	else
-	range = 25;
+		range = 25;
 	while (stack_len(a))
 		process_stack_a(a, b, &i, range);
-	while (stack_len(a))
+	while (stack_len(b))
 		k_sort(a, b);
 }

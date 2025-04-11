@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   organizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/10 11:27:32 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/11 10:00:42 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,20 +104,13 @@ void	move_to_bot(t_list *stack, int pos, char name)
 
 void	organizer(t_list *a, t_list *b)
 {
-	t_lst	*auxvar;
 	int		len;
-	int		initializer;
 
-	initializer = 0;
 	len = a->top + 1;
-	auxvar = struct_init(initializer);
-	if (!auxvar)
-		return ;
 	if (len == 4)
 		sort_four(a, b);
 	if (len == 5)
 		sort_small(a, b);
 	else
 		sort_large(a, b);
-	free(auxvar);
 }
