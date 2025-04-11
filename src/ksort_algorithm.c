@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:59:10 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/11 11:06:53 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:39:53 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	sort_large(t_list *a, t_list *b)
 	
 	i = 0;
 	if (stack_len(a) <= 100)
-		range = 20;
+		range = stack_len(a) / 5;
 	else
-		range = 25;
+		range = stack_len(a) / 10;
 	while (stack_len(a))
 		process_stack_a(a, b, &i, range);
 	while (stack_len(b))
