@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/11 10:00:42 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:24:55 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ void	organizer(t_list *a, t_list *b)
 	len = a->top + 1;
 	if (len == 4)
 		sort_four(a, b);
-	if (len == 5)
+	else if (len == 5)
 		sort_small(a, b);
-	else
+	else if (len > 5)
 		sort_large(a, b);
 }
