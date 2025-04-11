@@ -6,17 +6,17 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:59:10 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/11 12:39:53 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:02:06 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 void	k_sort(t_list *a, t_list *b)
-{   
+{
 	int	max_pos;
 	int	len;
-	
+
 	len = stack_len(b);
 	max_pos = find_largest_position(b);
 	if (max_pos <= len / 2)
@@ -57,9 +57,9 @@ void	process_stack_a(t_list *a, t_list *b, int *i, int range)
 
 void	sort_large(t_list *a, t_list *b)
 {
-	int		i;
-	int		range;
-	
+	int	i;
+	int	range;
+
 	i = 0;
 	if (stack_len(a) <= 100)
 		range = stack_len(a) / 5;

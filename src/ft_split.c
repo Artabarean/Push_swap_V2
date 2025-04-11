@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:15:09 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/28 10:28:56 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/11 13:03:11 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static char	*ft_createstr(char const *s, char c, size_t len)
 	return (str);
 }
 
-static char	**ft_free_array(char **liberated, size_t size)
+char	**ft_free_array(char **liberated, size_t size)
 {
 	size_t	index;
 
@@ -79,12 +79,12 @@ char	**ft_split(char const *s, char c)
 	char const	*ptr;
 	size_t		i;
 
+	i = 0;
 	if (!s)
 		return (NULL);
 	result = ft_calloc(ft_wrdcnt(s, c) + 1, sizeof(char *));
 	if (!result)
-		return (NULL);
-	i = 0;
+		return (ft_free_array(result, i));
 	ptr = s;
 	while (*ptr == c)
 		ptr++;

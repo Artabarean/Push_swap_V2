@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:53:05 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/11 12:24:37 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:03:21 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		k_sort(t_list *a, t_list *b);
 int			stack_pop(t_list *stack);
 void		stack_push(t_list *stack, long value);
 void		swap_a(t_list *stack);
-int 		find_max_value(t_list *stack);
+int			find_max_value(t_list *stack);
 int			check_max_min(long *nums, int top);
 void		swap_b(t_list *stack);
 void		rotate__iterate_b(t_list *b, int *max_indx);
@@ -56,7 +56,7 @@ int			push_swap(int argc, char **numbers, int count);
 void		organizer(t_list *a, t_list *b);
 void		sort_small(t_list *a, t_list *b);
 int			find_smallest_position(t_list *stack);
-int 		find_min_value(t_list *stack);
+int			find_min_value(t_list *stack);
 void		move_to_bot(t_list *stack, int pos, char name);
 void		sort_large(t_list *a, t_list *b);
 int			find_largest_position(t_list *stack);
@@ -70,5 +70,6 @@ void		reverse_rotate_a(t_list *stack);
 void		push_to_b(t_list *src, t_list *dst);
 long		ft_atoi_long(char *nptr);
 void		sort_four(t_list *a, t_list *b);
+char		**ft_free_array(char **liberated, size_t size);
 
 #endif

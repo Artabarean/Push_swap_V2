@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/11 12:52:48 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:00:50 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	push_swap(int argc, char **numbers, int count)
 			organizer(sa, sb);
 	}
 	if (argc == 2)
-		free(numbers);
+		ft_free_array(numbers, count);
 	return (free_stacks(sa, sb), 0);
 }
 
