@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:53:05 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/11 13:03:21 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:51:43 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void		k_sort(t_list *a, t_list *b);
 int			stack_pop(t_list *stack);
 void		stack_push(t_list *stack, long value);
 void		swap_a(t_list *stack);
-int			find_max_value(t_list *stack);
 int			check_max_min(long *nums, int top);
 void		swap_b(t_list *stack);
 void		rotate__iterate_b(t_list *b, int *max_indx);

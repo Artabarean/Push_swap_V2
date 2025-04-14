@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:59:10 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/11 13:02:06 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:47:03 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	k_sort(t_list *a, t_list *b)
 
 void	process_stack_a(t_list *a, t_list *b, int *i, int range)
 {
+	*i = find_min_value(a);
 	if (a->array[0] <= *i)
 	{
 		push_to_b(a, b);
@@ -58,13 +59,21 @@ void	process_stack_a(t_list *a, t_list *b, int *i, int range)
 void	sort_large(t_list *a, t_list *b)
 {
 	int	i;
-	int	range;
-
-	i = 0;
-	if (stack_len(a) <= 100)
-		range = stack_len(a) / 5;
+	int range;
+	int	size;
+	
+	size = stack_len(a);
+	if (size <= 100)
+		range = size / 6;
+	else if (size <= 300)
+		range = size / 12;
+	else if (size <= 400)
+		range = size / 14;
 	else
-		range = stack_len(a) / 10;
+		range = size / 16;
+	i = find_min_value(a);
+	if (stack_len(a) == 0)
+        return;
 	while (stack_len(a))
 		process_stack_a(a, b, &i, range);
 	while (stack_len(b))

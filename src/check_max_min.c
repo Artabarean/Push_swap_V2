@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 09:43:26 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/11 13:01:53 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:58:46 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,11 @@ int	check_max_min(long *nums, int top)
 	i = 0;
 	while (i <= top)
 	{
-		if (nums[i] > INT_MAX || nums[i] <= INT_MIN)
+		if (nums[i] > INT_MAX || nums[i] < INT_MIN)
 			return (1);
 		i++;
 	}
 	return (0);
-}
-
-int	find_max_value(t_list *stack)
-{
-	int	i;
-	int	max;
-	int	length;
-
-	length = stack_len(stack);
-	max = INT_MIN;
-	i = 0;
-	while (i < length)
-	{
-		if (stack->array[i] > max)
-			max = stack->array[i];
-		i++;
-	}
-	return (max);
 }
 
 int	find_min_value(t_list *stack)
