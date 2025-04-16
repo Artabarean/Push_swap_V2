@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:43:59 by alex              #+#    #+#             */
-/*   Updated: 2025/04/16 12:06:42 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/16 13:04:22 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,18 @@ int sequence(int max_pos, int next_max_pos, int len)
     return (0);
 }
 
-void    find_largest_positions(t_list *stack, int *max_pos, int *next_max_pos)
+void    find_largest_poss(t_list *sk, int *max_pos, int *nmax_pos, t_struct *a)
 {
     int i;
     int len;
-    int max;
-    int next_max;
-    
-    max = INT_MIN;
-    next_max = INT_MIN;
-    *max_pos = -1;
-    *next_max_pos = -1;
-    len = stack_len(stack);
+
     i = 0;
+    len = stack_len(sk);
     while (i < len)
     {
-        if (stack->array[i] > max)
+        if (sk->array[i] > a->max)
         {
-            max = stack->array[i];
+            a->max = sk->array[i];
             *max_pos = i;
         }
         i++;
@@ -62,10 +56,10 @@ void    find_largest_positions(t_list *stack, int *max_pos, int *next_max_pos)
     i = 0;
     while (i < len)
     {
-        if (stack->array[i] > next_max && stack->array[i] < max)
+        if (sk->array[i] > a->next_max && sk->array[i] < a->max)
         {
-            next_max = stack->array[i];
-            *next_max_pos = i;
+            a->next_max = sk->array[i];
+            *nmax_pos = i;
         }
         i++;
     }

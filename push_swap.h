@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:53:05 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/16 12:16:22 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/16 13:02:49 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ typedef struct t_struct
 	int	nmax_pos;
     int c_max;
 	int	c_nmax;
+	int max;
+    int next_max;
 }			t_struct;
 
 int 		sequence(int max_pos, int next_max_pos, int len);
-void		find_largest_positions(t_list *stack, int *max_pos, int *next_max_pos);
+void		find_largest_poss(t_list *b, int *max_pos, int *nmax_pos, t_struct *aux);
 size_t		ft_strlen(char *s);
 char		*ft_remove_zeros(char *result);
 int			find_max_value(t_list *stack);

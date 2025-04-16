@@ -6,20 +6,20 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:59:10 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/16 12:25:10 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/16 13:15:13 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	handle_element_rotation(t_list *b, int *position, int *other_pos, int len)
+void	handle_element_rotation(t_list *b, int *pos, int *other_pos, int len)
 {
-    if (*position <= len / 2)
+    if (*pos <= len / 2)
     {
-        while (*position > 0)
+        while (*pos > 0)
         {
             rotate_b(b);
-            (*position)--;
+            (*pos)--;
             if (*other_pos == 0)
                 *other_pos = len - 1;
             else
@@ -28,10 +28,10 @@ void	handle_element_rotation(t_list *b, int *position, int *other_pos, int len)
     }
     else
     {
-        while (*position < len)
+        while (*pos < len)
         {
             reverse_rotate_b(b);
-            (*position)++;
+            (*pos)++;
             if (*other_pos == len - 1)
                 *other_pos = 0;
             else
@@ -43,9 +43,9 @@ void	handle_element_rotation(t_list *b, int *position, int *other_pos, int len)
 void	k_sort(t_list *a, t_list *b, t_struct *aux)
 {
 	int	len;
-
+	
     len = stack_len(b);
-    find_largest_positions(b, &aux->max_pos, &aux->nmax_pos);
+    find_largest_poss(b, &aux->max_pos, &aux->nmax_pos, aux);
     aux->c_max = aux->max_pos;
     if (aux->max_pos > len / 2)
 		aux->c_max = len - aux->max_pos;  
