@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:53:05 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/16 11:10:49 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/16 12:16:22 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ typedef struct t_list
 	int		top;
 }			t_list;
 
+typedef struct t_struct
+{
+	int max_pos;
+	int	nmax_pos;
+    int c_max;
+	int	c_nmax;
+}			t_struct;
+
+int 		sequence(int max_pos, int next_max_pos, int len);
+void		find_largest_positions(t_list *stack, int *max_pos, int *next_max_pos);
 size_t		ft_strlen(char *s);
 char		*ft_remove_zeros(char *result);
 int			find_max_value(t_list *stack);
@@ -43,7 +53,7 @@ void		rotate(t_list *stack, char name);
 void		reverse_rotate(t_list *stack, char name);
 void		stack_init_from_strings(t_list *stack, char **strings);
 t_list		*stack_init(int size);
-void		k_sort(t_list *a, t_list *b);
+void		k_sort(t_list *a, t_list *b, t_struct *aux);
 int			stack_pop(t_list *stack);
 void		stack_push(t_list *stack, long value);
 void		swap_a(t_list *stack);
@@ -73,5 +83,6 @@ void		push_to_b(t_list *src, t_list *dst);
 long		ft_atoi_long(char *nptr);
 void		sort_four(t_list *a, t_list *b);
 char		**ft_free_array(char **liberated, size_t size);
+t_struct	*struct_init(int i);
 
 #endif
