@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ksort_algorithm.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:59:10 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/14 12:47:03 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:27:48 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,19 @@ void	k_sort(t_list *a, t_list *b)
 	push_to_a(b, a);
 }
 
-void	process_stack_a(t_list *a, t_list *b, int *i, int range)
+void	process_stack_a(t_list *a, t_list *b, int *min_val, int range)
 {
-	*i = find_min_value(a);
-	if (a->array[0] <= *i)
+	*min_val = find_min_value(a);
+	if (a->array[0] <= *min_val)
 	{
 		push_to_b(a, b);
 		rotate_b(b);
-		(*i)++;
+		(*min_val)++;
 	}
-	else if (*i < a->array[0] && a->array[0] <= *i + range)
+	else if (*min_val < a->array[0] && a->array[0] <= *min_val + range)
 	{
 		push_to_b(a, b);
-		(*i)++;
+		(*min_val)++;
 	}
 	else
 		rotate_a(a);
@@ -58,24 +58,24 @@ void	process_stack_a(t_list *a, t_list *b, int *i, int range)
 
 void	sort_large(t_list *a, t_list *b)
 {
-	int	i;
+	int	min_val;
 	int range;
-	int	size;
-	
-	size = stack_len(a);
-	if (size <= 100)
-		range = size / 6;
-	else if (size <= 300)
-		range = size / 12;
-	else if (size <= 400)
-		range = size / 14;
+	int	max_val;
+
+	max_val = find_max_value(a);
+	min_val = find_min_value(a);
+	if (stack_len(a) <= 200)
+		range = (max_val - min_val) / 8;
+	else if (stack_len(a) <= 400)
+		range = (max_val - min_val) / 11;
 	else
-		range = size / 16;
-	i = find_min_value(a);
+		range = (max_val - min_val) / 14;
+	if (range < 1)
+		range = 1;
 	if (stack_len(a) == 0)
         return;
 	while (stack_len(a))
-		process_stack_a(a, b, &i, range);
+		process_stack_a(a, b, &min_val, range);
 	while (stack_len(b))
 		k_sort(a, b);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:53:05 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/14 12:51:43 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:10:49 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+// ARG="$(shuf -i 1-1000 -n 100 | tr '\n' ' ')"; ./push_swap $ARG | wc -l
+// ARG="$(shuf -i 1-1000 -n 100 | tr '\n' ' ')"; ./push_swap $ARG | ./checker_linux $ARG
 
 typedef struct t_list
 {
@@ -29,6 +31,7 @@ typedef struct t_list
 
 size_t		ft_strlen(char *s);
 char		*ft_remove_zeros(char *result);
+int			find_max_value(t_list *stack);
 int			ft_isdigit(int c);
 int			char_search(char **numbers);
 int			arguments_valid(long *array, int top);
