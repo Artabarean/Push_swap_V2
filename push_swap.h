@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:53:05 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/21 13:24:04 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/22 13:51:35 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@
 # include <ctype.h>
 # include <limits.h>
 # include <stdarg.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-// ARG="$(shuf -i 1-1000 -n 100 | tr '\n' ' ')"; ./push_swap $ARG | wc -l
-// ARG="$(shuf -i 1-1000 -n 100 | tr '\n' ' ')"; ./push_swap $ARG | ./checker_linux $ARG
+# include <stdio.h>
 
 typedef struct t_list
 {
 	long	*array;
+	int		*indx;
 	int		size;
 	int		top;
 }			t_list;
@@ -34,7 +33,7 @@ char		*ft_remove_zeros(char *result);
 int			find_max_value(t_list *stack);
 int			ft_isdigit(int c);
 int			char_search(char **numbers);
-int			arguments_valid(long *array, int top);
+int			args_valid(long *array, int top);
 void		sorter(t_list *a, int top, int mid, int bot);
 void		sort_three(t_list *a);
 void		free_stacks(t_list *sa, t_list *sb);
@@ -47,10 +46,8 @@ void		k_sort(t_list *a, t_list *b);
 int			stack_pop(t_list *stack);
 void		stack_push(t_list *stack, long value);
 void		swap_a(t_list *stack);
-int			check_max_min(long *nums, int top);
+int			check(long *nums, int top);
 void		swap_b(t_list *stack);
-void		rotate__iterate_b(t_list *b, int *max_indx);
-void		reverse_rotate_iterate_b(t_list *b, int *max_indx);
 int			stack_is_sorted(t_list *stack);
 int			stack_is_empty(t_list *stack);
 int			stack_len(t_list *stack);

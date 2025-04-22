@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/21 13:25:40 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/22 13:58:37 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int	push_swap(int argc, char **numbers, int count)
 {
 	t_list	*sa;
 	t_list	*sb;
-	// int     i;
+	// int	i;
+
 	// i = 0;
 	sa = stack_init(count);
 	sb = stack_init(count);
@@ -57,16 +58,16 @@ int	push_swap(int argc, char **numbers, int count)
 	//  }
 	//  printf("\n");
 	//  i = 0;
-	if (arguments_valid(sa->array, sa->top) == 1)
-		return (write(2, "Error\n", 6), 1);
-	if (check_max_min(sa->array, sa->top) == 1)
-		return (write(2, "Error\n", 6), 1);
+	if (args_valid(sa->array, sa->top) == 1 || check(sa->array, sa->top) == 1)
+	{
+		if (argc == 2)
+			ft_free_array(numbers, count);
+		return (write(2, "Error\n", 6), free_stacks(sa, sb), 1);
+	}
 	if (stack_is_sorted(sa) == 1)
 	{
 		if (stack_len(sa) == 2)
 			swap_a(sa);
-		else if (stack_len(sa) == 3)
-			sort_three(sa);
 		else
 			organizer(sa, sb);
 	}
@@ -90,13 +91,19 @@ int	main(int argc, char *argv[])
 		return (1);
 	if ((argc == 2 && !argv[1][0]))
 		return (write(2, "Error\n", 6), 1);
+	count = 0;
 	if (argc == 2)
+	{
 		numbers = ft_split(argv[1], ' ');
+		while (numbers[count])
+			count++;
+		if (char_search(numbers) == 1)
+			return(ft_free_array(numbers, count), write(2, "Error\n", 6), 1);
+	}
 	else
 		numbers = &argv[1];
 	if (char_search(numbers) == 1)
 		return (write(2, "Error\n", 6), 1);
-	count = 0;
 	while (numbers[count])
 		count++;
 	return (push_swap(argc, numbers, count));

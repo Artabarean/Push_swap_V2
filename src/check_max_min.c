@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_max_min.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 09:43:26 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/16 11:10:34 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/22 13:12:26 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_max_min(long *nums, int top)
+int	check(long *nums, int top)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ int	find_max_value(t_list *stack)
 	int	i;
 	int	max;
 	int	length;
- 
+
 	length = stack_len(stack);
 	max = INT_MIN;
 	i = 0;
